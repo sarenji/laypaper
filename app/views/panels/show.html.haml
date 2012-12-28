@@ -1,0 +1,5 @@
+- content_for :title, @comic.name
+
+.section.top
+  %h2= link_to @comic.name, @comic
+  = image_tag @panel.url

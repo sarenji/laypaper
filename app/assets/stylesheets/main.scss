@@ -1,0 +1,73 @@
+$section_radius: 8px;
+$sans_serif: "Open Sans", "Helvetica Neue", sans-serif;
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: #000 image-url("illusion.png");
+  font: 100% $sans_serif;
+}
+
+body {
+  font-size: .875em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "League Gothic";
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 3em;
+  margin: 0;
+}
+
+.wrapper {
+  width: 640px;
+  margin: 0 auto;
+}
+
+.section {
+  padding: 20px;
+  margin-bottom: 20px;
+  background: #FDFAFF;
+  border-radius: $section_radius;
+  box-shadow: 1px 1px 0 #2d3339, 2px 2px 0 #2d3339, 3px 3px 0 #2d3339, 4px 4px 0 #2d3339, 5px 5px 0 #2d3339, 6px 6px 0 #2d3339;
+  &.top {
+    border-radius: 0 0 $section_radius $section_radius;
+  }
+}
+
+a {
+  text-decoration: none;
+  &:link {     color: #46AFE8; }
+  &:visited {  color: #81419E; }
+  &:hover {    color: #9B78D6; }
+}
+
+.footer {
+  background: #000;
+  color: #fff;
+  font-size: .857em;
+  margin-top: 48px;
+  padding: 20px 0;
+
+  h2 {
+    font-family: $sans_serif;
+    font-size: 1.333em;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .wrapper {
+    width: 600px;
+  }
+}

@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %title
+      - if yield(:title).present?
+        = yield :title
+        |
+      laypaper
+    = stylesheet_link_tag "application", :media => "all"
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700'
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+%body
+  .main.wrapper
+    = yield
+  .footer
+    .wrapper
+      %h2 Other comics
+      %ul
+        %li= link_to 'Badmachinery', 'http://scarygoround.com/'
+        %li= link_to 'Homestuck', 'http://mspaintadventures.com/'
