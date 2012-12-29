@@ -2,4 +2,7 @@
 
 .section.top
   %h2= link_to @comic.name, @comic
-  = image_tag @panel.url
+  - if @panel.html.present?
+    = @panel.html.html_safe
+  - else
+    = image_tag @panel.url

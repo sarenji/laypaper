@@ -1,0 +1,90 @@
+$prefixer-enabled-for-mozilla: true;
+$prefixer-enabled-for-webkit: true;
+$prefixer-enabled-for-opera: true;
+$prefixer-enabled-for-microsoft: true;
+$prefixer-enabled-for-spec: true;
+
+@mixin prefixer ($property, $value, $prefixes) {
+
+  @each $prefix in $prefixes {
+    @if $prefix == webkit {
+      @if $prefixer-enabled-for-webkit {
+        -webkit-#{$property}: $value;
+      }
+    }
+    @else if $prefix == moz {
+      @if $prefixer-enabled-for-mozilla {
+        -moz-#{$property}: $value;
+      }
+    }
+    @else if $prefix == ms {
+      @if $prefixer-enabled-for-microsoft {
+        -ms-#{$property}: $value;
+      }
+    }
+    @else if $prefix == o {
+      @if $prefixer-enabled-for-opera {
+        -o-#{$property}: $value;
+      }
+    }
+    @else if $prefix == spec {
+      @if $prefixer-enabled-for-spec {
+        #{$property}: $value;
+      }
+    }
+    @else  {
+      @warn "Unrecognized prefix: #{$prefix}";
+    }
+  }
+}
+
+@mixin prefixer-disable-all() {
+  $prefixer-enabled-for-mozilla: false;
+  $prefixer-enabled-for-webkit: false;
+  $prefixer-enabled-for-opera: false;
+  $prefixer-enabled-for-microsoft: false;
+  $prefixer-enabled-for-spec: false;
+}
+
+// https://github.com/thoughtbot/bourbon/issues/98
+@mixin keyframes($name) {
+  // Save support
+  $original-prefixer-enabled-for-mozilla:   $prefixer-enabled-for-mozilla;
+  $original-prefixer-enabled-for-webkit:    $prefixer-enabled-for-webkit;
+  $original-prefixer-enabled-for-opera:     $prefixer-enabled-for-opera;
+  $original-prefixer-enabled-for-microsoft: $prefixer-enabled-for-microsoft;
+  $original-prefixer-enabled-for-spec:      $prefixer-enabled-for-spec;
+
+  @if $original-prefixer-enabled-for-mozilla {
+    @include prefixer-disable-all();
+    $prefixer-enabled-for-mozilla: true;
+    @-moz-keyframes #{$name} { @content; }
+  }
+  @if $original-prefixer-enabled-for-webkit {
+    @include prefixer-disable-all();
+    $prefixer-enabled-for-webkit: true;
+    @-webkit-keyframes #{$name} { @content; }
+  }
+  @if $original-prefixer-enabled-for-opera {
+    @include prefixer-disable-all();
+    $prefixer-enabled-for-opera: true;
+    @-o-keyframes #{$name} { @content; }
+  }
+  @if $original-prefixer-enabled-for-microsoft {
+    @include prefixer-disable-all();
+    $prefixer-enabled-for-microsoft: true;
+    @-ms-keyframes #{$name} { @content; }
+  }
+  @if $original-prefixer-enabled-for-spec {
+    @include prefixer-disable-all();
+    $prefixer-enabled-for-spec: true;
+    @keyframes #{$name} { @content; }
+  }
+
+  // Restore support
+  $prefixer-enabled-for-mozilla:   $original-prefixer-enabled-for-mozilla;
+  $prefixer-enabled-for-webkit:    $original-prefixer-enabled-for-webkit;
+  $prefixer-enabled-for-opera:     $original-prefixer-enabled-for-opera;
+  $prefixer-enabled-for-microsoft: $original-prefixer-enabled-for-microsoft;
+  $prefixer-enabled-for-spec:      $original-prefixer-enabled-for-spec; 
+}

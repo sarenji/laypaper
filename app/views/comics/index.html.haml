@@ -1,7 +1,8 @@
 - content_for :title, 'All comics'
 
 .section.top
+  %h2 All laypaper comics
   - @comics.each do |comic|
     .comic
-      %h2= link_to comic.name, comic
+      %h3= link_to comic.name, comic
       = comic.description

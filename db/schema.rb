@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121228153622) do
+ActiveRecord::Schema.define(:version => 20121229163943) do
 
   create_table "comics", :force => true do |t|
     t.string   "name",        :null => false
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20121228153622) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "comic_id"
+    t.text     "html"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
