@@ -5,7 +5,8 @@ class PanelsController < ApplicationController
   end
 
   def find_panel
-    @panel = Panel.find(params[:id])
+    @panels = Panel.order('id ASC').page(params[:page]).per(1)
+    @panel = @panels.first
     @comic = @panel.comic
   end
 end

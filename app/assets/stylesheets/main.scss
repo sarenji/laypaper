@@ -55,6 +55,14 @@ h3 {
   position: absolute;
 }
 
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
 a {
   text-decoration: none;
   &:link {     color: #46AFE8; }
@@ -83,4 +91,25 @@ a {
   .wrapper {
     width: 600px;
   }
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+ 
+.clearfix {
+  display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+  display: block;
+}
+ 
+* html .clearfix {
+  height: 1%;
 }

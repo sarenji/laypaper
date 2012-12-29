@@ -3,7 +3,7 @@ Laypaper::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   resources :comics, path: '/' do
-    resources :panels
+    get 'panels/:page', :action => :show, :controller => :panels
   end
   
 end

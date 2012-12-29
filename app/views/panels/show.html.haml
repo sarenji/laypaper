@@ -1,8 +1,10 @@
 - content_for :title, @comic.name
 
-.section.top
+.section.top.clearfix
   %h2= link_to @comic.name, @comic
   - if @panel.html.present?
     = @panel.html.html_safe
   - else
-    = image_tag @panel.url
+    %div= image_tag @panel.url
+  = link_to_previous_page @panels, "Prev", :class => "left"
+  = link_to_next_page @panels, "Next", :class => "right"

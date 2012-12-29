@@ -13,3 +13,17 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).on('keyup', function (e) {
+  if (e.keyCode == 39) {
+    var href = $('a[rel="next"]').attr('href');
+    if (href) {
+      window.location = href;
+    }
+  } else if (e.keyCode == 37) {
+    var href = $('a[rel="previous"]').attr('href');
+    if (href) {
+      window.location = href;
+    }
+  }
+});
