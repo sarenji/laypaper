@@ -162,6 +162,7 @@ DEPENDENCIES
   friendly_id (~> 4.0.1)
   haml
   jquery-rails
+  kaminari
   pg
   rails (= 3.2.9)
   rails_admin
