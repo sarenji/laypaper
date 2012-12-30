@@ -7,8 +7,7 @@ class ComicsController < ApplicationController
 
   # show first page of specific comic
   def show
-    @panel = @comic.panels.first
-    redirect_to comic_panel_url(@comic, @panel)
+    redirect_to comic_panel_url(@comic, 1)
   end
 
   private
