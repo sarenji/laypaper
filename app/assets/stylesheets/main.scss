@@ -70,11 +70,18 @@ h3 {
   a {
     padding: 20px;
   }
-  .previous_page {
-    border-right: 1px solid #ccc;
+  a.previous_page {
+    border-right: 1px solid #666;
+    border-radius: 0 0 0 $section_radius;
   }
-  .next_page {
-    border-left: 1px solid #ccc;
+  a.next_page {
+    border-left: 1px solid #666;
+    border-radius: 0 0 $section_radius 0;
+  }
+  a.next_page, a.previous_page {
+    &:hover {
+      background-color: lighten(#111, 5%);
+    }
   }
 }
 
