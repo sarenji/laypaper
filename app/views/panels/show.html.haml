@@ -5,6 +5,9 @@
   - if @panel.html.present?
     = @panel.html.html_safe
   - else
-    %div= image_tag @panel.url
-  = link_to_previous_page @panels, "Prev", :class => "left"
-  = link_to_next_page @panels, "Next", :class => "right"
+    = image_tag @panel.url, :class => "block"
+  - if @panel.text?
+    .panel_text= @panel.rendered_text.html_safe
+.nav.clearfix
+  = link_to_previous_page @panels, "Prev", :class => "previous_page left"
+  = link_to_next_page @panels, "Next", :class => "next_page right"
