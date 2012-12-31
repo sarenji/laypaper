@@ -1,10 +1,15 @@
 - content_for :title, "Archive for #{@comic.name}"
 
 .section.clearfix
-  %h2= @comic.name
+  %h2
+    Archive:
+    = @comic.name
   %ul
     - @comic.panels.count.downto(1) do |i|
       %li
+        = @comic.created_at.strftime("%Y/%m/%d")
+        &mdash;
         = link_to comic_panel_url(@comic, i) do
-          = @comic.name
-          \##{i}
+          %strong
+            = @comic.name
+            \##{i}
