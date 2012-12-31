@@ -5,9 +5,8 @@ class ComicsController < ApplicationController
     @comics = Comic.all
   end
 
-  # show first page of specific comic
+  # show archive page of specific comic
   def show
-    redirect_to comic_panel_url(@comic, 1)
   end
 
   private

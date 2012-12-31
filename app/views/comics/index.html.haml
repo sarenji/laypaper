@@ -4,5 +4,5 @@
   %h2 All laypaper comics
   - @comics.each do |comic|
     .comic
-      %h3= link_to comic.name, comic
+      %h3= link_to comic.name, comic_panel_url(comic, 1)
       = comic.description

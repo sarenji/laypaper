@@ -1,6 +1,6 @@
 - content_for :title, @comic.name
 
-.section.top.clearfix
+.section.main.clearfix
   %h2= link_to @comic.name, @comic
   - if @panel.html.present?
     = @panel.html.html_safe
@@ -10,4 +10,5 @@
     .panel_text= @panel.rendered_text.html_safe
 .nav.clearfix
   = link_to_previous_page @panels, "Prev", :class => "previous_page left"
+  = link_to "Archive", @comic, :class => "archive_link left"
   = link_to_next_page @panels, "Next", :class => "next_page right"
