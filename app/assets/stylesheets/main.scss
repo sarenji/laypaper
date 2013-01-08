@@ -21,7 +21,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1, h2 {
-  font-family: "League Gothic", "Helvetica Neue", sans-serif;
+  font-family: "PT Sans Narrow", "Helvetica Neue", sans-serif;
+  font-weight: 700;
 }
 
 h2 {
@@ -57,7 +58,9 @@ h3 {
   border: 10px solid #666;
   background: #222;
   color: #fff;
+  font-size: 16px;
   font-family: Monaco, "Courier New", monospace;
+  -webkit-font-smoothing: none;
 }
 
 .nav {
